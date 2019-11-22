@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import API from './API'
-import { tsThisType } from '@babel/types';
 
 export default class SearchBar extends Component{
     constructor(props){
@@ -40,7 +39,7 @@ export default class SearchBar extends Component{
                         <option value="planets">Planets</option>
                         <option value="species">Species</option>
                         <option value="starships">Starships</option>
-                        <option value="vehicles"></option>
+                        <option value="vehicles">Vehicles</option>
                     </select>
                     <label forHtml="search-input">Search for:
                         <input 

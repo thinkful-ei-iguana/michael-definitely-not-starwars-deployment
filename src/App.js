@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom'
 import HomePage from './components/HomePage'
 import Context from './Context'
-import API from './components/API'
 import './App.css';
 
 

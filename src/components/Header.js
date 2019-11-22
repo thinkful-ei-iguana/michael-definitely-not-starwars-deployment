@@ -5,6 +5,7 @@ class Header extends Component{
     render(){
         return(
             <div className="Header">
+                <h1>STAR SEARCH</h1>
                 <SearchBar />
             </div>
         )
