@@ -1,13 +1,21 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
+import Context from "../Context";
+import Result from "./Result";
+import cuid from "cuid";
 
-class ResultsDisplay extends Component{
-    render(){
-        return(
-            <div>
-                <h2>Test Results Area</h2>
-            </div>
-        )
-    }
+class ResultsDisplay extends Component {
+  static contextType = Context;
+
+  render() {
+    console.log(this.context.results);
+    return (
+      <div>
+        {this.context.results.map(result => (
+          <Result key={cuid()} name={result.name} />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default ResultsDisplay;

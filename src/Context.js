@@ -1,7 +1,8 @@
-import React from 'react'
+import React from "react";
 
 const Context = React.createContext({
-    results: [],
-})
+  results: [],
+  apiFetch: function() {}
+});
 
 export default Context;
