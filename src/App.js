@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Route, {Switch} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import HomePage from './components/HomePage'
 import Context from './Context'
 import API from './components/API'
@@ -18,17 +18,22 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      results: {}
+      results: []
     }
   }
 
   render(){
+    const contextValue = {
+      results: this.state.results
+    }
     return (
-      <div className="App">
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-        </Switch>
-      </div>
+      <Context.Provider value={contextValue}>
+        <div className="App">
+          <Switch>
+            <Route exact path='/' component={HomePage} />
+          </Switch>
+        </div>
+      </Context.Provider>
     );
   }
 }

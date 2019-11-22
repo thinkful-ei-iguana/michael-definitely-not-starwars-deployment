@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Context extends Component {
+const Context = React.createContext({
+    results: [],
+})
 
-}
+export default Context;
