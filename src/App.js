@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Route, {Switch} from 'react-router-dom'
+import HomePage from './components/HomePage'
+import Context from './Context'
+import API from './components/API'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+// REQUIREMENTS 
+// Allows users to search for character name and displays
+//  matching characters.
+// Deployed using Zeit's Now
+// Loading Indicator
+// search for: Planets, Vehicles, characters, films or speecies
+// passing test suite
+
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      results: {}
+    }
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
