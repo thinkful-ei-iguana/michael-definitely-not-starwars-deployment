@@ -7,7 +7,6 @@ class ResultsDisplay extends Component {
   static contextType = Context;
 
   render() {
-    console.log(this.context.results);
     return (
       <div>
         {this.context.results.map(result => (

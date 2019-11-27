@@ -10,21 +10,25 @@ export default class SearchBar extends Component {
       },
       searchType: {
         value: "people"
-      }
+      },
+      inputValue: ""
     };
   }
   static contextType = Context;
 
   handleSubmit = e => {
     e.preventDefault();
+    this.context.clearResults();
     this.context.apiFetch(
       this.state.searchType.value,
       this.state.searchInput.value
     );
+    this.setState({
+      inputValue: ""
+    });
   };
 
   handleSearchType = type => {
-    console.log(type);
     this.setState({
       searchType: { value: type }
     });
@@ -32,7 +36,8 @@ export default class SearchBar extends Component {
 
   handleSearchInput = searchInput => {
     this.setState({
-      searchInput: { value: searchInput }
+      searchInput: { value: searchInput },
+      inputValue: searchInput
     });
   };
 
@@ -59,6 +64,7 @@ export default class SearchBar extends Component {
               className="search-input"
               type="text"
               name="search"
+              value={this.state.inputValue}
               onChange={e => this.handleSearchInput(e.target.value)}
             />
           </label>

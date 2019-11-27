@@ -20,8 +20,15 @@ class App extends Component {
     };
   }
   updateAppState = data => {
+    console.log(data);
     this.setState({
       results: [...this.state.results, ...data.results]
+    });
+  };
+
+  clearResults = () => {
+    this.setState({
+      results: []
     });
   };
 
@@ -47,7 +54,8 @@ class App extends Component {
   render() {
     const contextValue = {
       results: this.state.results,
-      apiFetch: this.apiFetch
+      apiFetch: this.apiFetch,
+      clearResults: this.clearResults
     };
     return (
       <Context.Provider value={contextValue}>
@@ -56,6 +64,11 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
           </Switch>
         </div>
+        <div className="star star-1"></div>
+        <div className="star star-2"></div>
+        <div className="star star-3"></div>
+        <div className="star star-4"></div>
+        <div className="star star-5"></div>
       </Context.Provider>
     );
   }
